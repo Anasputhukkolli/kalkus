@@ -143,10 +143,7 @@ function Footer() {
         }`} style={{ transitionDelay: '2000ms' }}>
           <p className="text-gray-400 text-sm relative">
             © 2025 KALKUS. All rights reserved.
-            <div className="absolute -bottom-1 left-0 w-0 h-px bg-purple-600 transition-all duration-1000" style={{ 
-              width: isVisible ? '100%' : '0%',
-              transitionDelay: '2200ms'
-            }}></div>
+            
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 text-sm relative group/footer-link">
