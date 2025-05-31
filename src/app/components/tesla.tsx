@@ -1,10 +1,20 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/footer';
+
+// Define the interface for portfolio items
+interface PortfolioItem {
+  id: number;
+  image: string;
+  size: string;
+  title: string;
+  description: string;
+}
+
 const TeslaMasonryPortfolio = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [scrollY, setScrollY] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<PortfolioItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -13,7 +23,7 @@ const TeslaMasonryPortfolio = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openModal = (item) => {
+  const openModal = (item: PortfolioItem) => {
     setSelectedImage(item);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
@@ -26,7 +36,7 @@ const TeslaMasonryPortfolio = () => {
   };
 
   useEffect(() => {
-    const handleEscape = (e) => {
+    const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal();
     };
     
@@ -36,7 +46,7 @@ const TeslaMasonryPortfolio = () => {
     }
   }, [isModalOpen]);
 
-  const portfolioItems = [
+  const portfolioItems: PortfolioItem[] = [
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&h=600&fit=crop",
@@ -137,7 +147,7 @@ const TeslaMasonryPortfolio = () => {
     }
   ];
 
-  const getSizeClasses = (size) => {
+  const getSizeClasses = (size: string) => {
     switch (size) {
       case 'large':
         return 'col-span-2 row-span-2 h-96';
