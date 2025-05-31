@@ -138,15 +138,7 @@ export default function SplashScreen() {
               opacity: Math.max(0, 1 - pageTransition * 2),
             }}
           >
-            <h1
-              className="head text-6xl font-black tracking-wide"
-              style={{
-                color: "#ffffff",
-                textShadow: "0 0 30px rgba(255,255,255,0.5)",
-              }}
-            >
-              KALKUS
-            </h1>
+            
           </div>
         </div>
 
