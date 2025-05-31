@@ -5,12 +5,12 @@ const CardSection = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const animatedTexts = [
-    "What We Do",
-    "Our Expertise",
-    "What We Create",
-    "What We Build",
-  ];
+  // const animatedTexts = [
+  //   "What We Do",
+  //   "Our Expertise",
+  //   "What We Create",
+  //   "What We Build",
+  // ];
 
   const cards = [
     {
@@ -87,9 +87,9 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
     setIsVisible(true);
 
     // Text rotation interval
-    const textInterval = setInterval(() => {
-      setTextIndex((prev) => (prev + 1) % animatedTexts.length);
-    }, 3000);
+    // const textInterval = setInterval(() => {
+    //   setTextIndex((prev) => (prev + 1) % animatedTexts.length);
+    // }, 3000);
 
     // Auto-carousel interval
     const carouselInterval = setInterval(() => {
@@ -110,7 +110,7 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
     window.addEventListener("resize", handleResize);
 
     return () => {
-      clearInterval(textInterval);
+      // clearInterval(textInterval);
       clearInterval(carouselInterval);
       window.removeEventListener("resize", handleResize);
     };
@@ -121,92 +121,14 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 py-16 px-4 overflow-hidden">
+    <section className="min-h-screen   px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Ultra Animated Section Header */}
         <div className="text-center mb-20 relative">
           {/* Mega Background Effects */}
-          <div className="absolute inset-0 -z-10">
-            <div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-conic from-purple-500/30 via-pink-500/20 to-blue-500/30 rounded-full blur-3xl animate-spin"
-              style={{ animationDuration: "20s" }}
-            ></div>
-            <div
-              className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full blur-2xl animate-pulse"
-              style={{ animationDuration: "4s" }}
-            ></div>
-            <div
-              className="absolute top-1/2 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full blur-2xl animate-bounce"
-              style={{ animationDelay: "1s", animationDuration: "6s" }}
-            ></div>
-          </div>
+          
 
-          {/* Main Mega Heading */}
-          <div className="relative mb-8">
-            <div className="relative">
-              <h1
-                className={`text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-8 transform transition-all duration-1500 ${
-                  isVisible
-                    ? "translate-y-0 opacity-100 scale-100"
-                    : "translate-y-20 opacity-0 scale-90"
-                } relative z-10`}
-                style={{
-                  fontFamily: "system-ui, -apple-system, sans-serif",
-                  letterSpacing: "-0.05em",
-                  lineHeight: "0.9",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                }}
-              >
-                <div className="relative inline-block">
-                  {animatedTexts.map((text, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 transition-all duration-1000 transform ${
-                        index === textIndex
-                          ? "translate-y-0 opacity-100 scale-100 rotate-0"
-                          : index < textIndex
-                          ? "-translate-y-full opacity-0 scale-95 -rotate-12"
-                          : "translate-y-full opacity-0 scale-95 rotate-12"
-                      }`}
-                      style={{
-                        transformOrigin: "center center",
-                        filter:
-                          index === textIndex
-                            ? "drop-shadow(0 10px 20px rgba(168, 85, 247, 0.5))"
-                            : "none",
-                      }}
-                    >
-                      {text.split(" ").map((word, wordIndex) => (
-                        <span key={wordIndex} className="inline-block mr-2 sm:mr-4">
-                          {word.split("").map((char, charIndex) => (
-                            <span
-                              key={charIndex}
-                              className="inline-block transform transition-all duration-700"
-                              style={{
-                                animationDelay: `${
-                                  (wordIndex * 3 + charIndex) * 0.1
-                                }s`,
-                                animation:
-                                  index === textIndex
-                                    ? "letterBounce 3s ease-in-out infinite"
-                                    : "none",
-                              }}
-                            >
-                              {char}
-                            </span>
-                          ))}
-                        </span>
-                      ))}
-                    </div>
-                  ))}
-                  <div className="opacity-0 pointer-events-none">
-                    {animatedTexts[0]}
-                  </div>
-                </div>
-              </h1>
-            </div>
-          </div>
+        
 
           {/* Enhanced Subtitle */}
           
@@ -369,35 +291,11 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
           </div>
 
           {/* Dot Indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {Array.from({ length: maxSlide + 1 }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
-                  currentSlide === index
-                    ? "bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg"
-                    : "bg-white/40 hover:bg-white/60"
-                }`}
-              />
-            ))}
-          </div>
+         
         </div>
 
         {/* Enhanced Bottom CTA */}
-        <div
-          className={`text-center mt-20 transform transition-all duration-1000 delay-1000 ${
-            isVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-10 opacity-0"
-          }`}
-        >
-          <button className="relative bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 hover:from-purple-700 hover:via-pink-700 hover:to-cyan-700 text-white font-bold py-4 px-8 sm:py-6 sm:px-12 rounded-full transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 overflow-hidden group text-base sm:text-lg">
-            <span className="relative z-10">Explore All Services</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-pink-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-            <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-          </button>
-        </div>
+        
       </div>
 
       {/* Enhanced CSS Animations */}

@@ -27,7 +27,7 @@ export default function AutoSlidingLogos() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br  overflow-hidden">
+    <section className=" bg-gradient-to-br  overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
