@@ -59,17 +59,17 @@ export default function ResponsiveCreativeStudio() {
           <div className="text-center">
             <h1 className="text-lg font-light leading-relaxed mb-6">
               WE ARE A{' '}
-              <span className="text-blue-500 font-semibold">CREATIVE STUDIO</span>{' '}
-              BASED IN BENGALURU<br />
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold">CREATIVE STUDIO</span>{' '}
+              BASED ON Kerala<br />
               SPECIALIZING IN{' '}
-              <span className="text-blue-500 font-semibold">DESIGN</span>,{' '}
-              <span className="text-blue-500 font-semibold">MOTION</span>,{' '}
-              <span className="text-blue-500 font-semibold">WEB</span>{' '}
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold">DESIGN</span>,{' '}
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold">MOTION</span>,{' '}
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold">WEB</span>{' '}
               AND{' '}
-              <span className="text-blue-500 font-semibold">SOCIAL</span>
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold">SOCIAL</span>
             </h1>
             
-            <button className="group w-full bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-between">
+            <button className="group w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 px-8 py-4 rounded-xl font-semibold text-lg text-white transition-all duration-300 flex items-center justify-between">
               <span>ABOUT US</span>
               <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </button>
