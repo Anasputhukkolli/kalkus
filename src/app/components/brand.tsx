@@ -18,6 +18,14 @@ export default function AutoSlidingLogos() {
     { name: "Twitter", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" }
   ];
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    // Fallback if image fails to load
+    const target = e.target as HTMLImageElement;
+    const nextSibling = target.nextSibling as HTMLElement;
+    target.style.display = 'none';
+    nextSibling.style.display = 'flex';
+  };
+
   return (
     <section className="py-16 bg-gradient-to-br  overflow-hidden">
       <div className="container mx-auto px-6">
@@ -57,11 +65,7 @@ export default function AutoSlidingLogos() {
                     src={company.logo}
                     alt={`${company.name} logo`}
                     className="max-w-24 max-h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    onError={(e) => {
-                      // Fallback if image fails to load
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
+                    onError={handleImageError}
                   />
                   <div className="hidden w-full h-full items-center justify-center text-gray-500 font-semibold text-sm">
                     {company.name}
@@ -81,10 +85,7 @@ export default function AutoSlidingLogos() {
                     src={company.logo}
                     alt={`${company.name} logo`}
                     className="max-w-24 max-h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
+                    onError={handleImageError}
                   />
                   <div className="hidden w-full h-full items-center justify-center text-gray-500 font-semibold text-sm">
                     {company.name}
@@ -104,10 +105,7 @@ export default function AutoSlidingLogos() {
                     src={company.logo}
                     alt={`${company.name} logo`}
                     className="max-w-24 max-h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
+                    onError={handleImageError}
                   />
                   <div className="hidden w-full h-full items-center justify-center text-gray-500 font-semibold text-sm">
                     {company.name}
