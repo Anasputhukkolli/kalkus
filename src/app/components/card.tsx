@@ -80,7 +80,7 @@ const CardSection = () => {
     return 1;
   };
 
-const [slidesPerView, setSlidesPerView] = useState(4); // <- safe default for server
+const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for server
   const maxSlide = Math.max(0, cards.length - slidesPerView);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ const [slidesPerView, setSlidesPerView] = useState(4); // <- safe default for se
     };
   }, [maxSlide, currentSlide]);
 
-  const goToSlide = (index) => {
+  const goToSlide = (index:number) => {
     setCurrentSlide(Math.min(index, maxSlide));
   };
 
