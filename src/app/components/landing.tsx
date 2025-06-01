@@ -33,7 +33,7 @@ export default function ResponsiveCreativeStudio() {
       icon: <Palette size={32} />,
       title: "BRANDING",
       color: "from-pink-500 to-rose-500",
-      link: "/Branding",
+      link: "/branding",
 
     },
     {
@@ -48,7 +48,7 @@ export default function ResponsiveCreativeStudio() {
       icon: <Share2 size={32} />,
       title: "SOCIAL",
       color: "from-purple-500 to-violet-500",
-      link: "/social",
+      link: "/socials",
     },
     {
       id: "production",

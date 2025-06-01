@@ -1,6 +1,6 @@
 import React from "react";
-import Website from "../components/website/website";
-import Websiteone from "../components/website/websiteo";
+import Brand from "../components/branding/page1";
+import Brand2 from "../components/branding/page2";
 import Header from "../components/header"; // Assuming you have a Header component
 import Footer from "../components/footer"; // Assuming you have a Header component
 import Ribon from "../components/ribon"; // Assuming you have a Ribon component
@@ -11,13 +11,13 @@ export default function page() {
         <Header />
       </section>
       <section>
-        <Website />
+        <Brand />
       </section>
       <section>
         <Ribon />
       </section>
       <section>
-        <Websiteone />
+        <Brand2 />
       </section>
       <section>
         <Footer/>
