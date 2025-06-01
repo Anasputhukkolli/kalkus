@@ -90,10 +90,10 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Brand Logo/Button */}
-        <div className="absolute top-6 right-6 sm:top-10 sm:right-10">
+        <div className="absolute top-6 right-6 sm:top-1 sm:right-1">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`text-3xl sm:text-4xl md:text-6xl lg:text-[80px] font-extrabold tracking-wide text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-transparent hover:bg-clip-text transition-all duration-300 transform ${
+            className={`text-5xl sm:text-4xl md:text-6xl lg:text-[80px] font-extrabold tracking-wide text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-transparent hover:bg-clip-text transition-all duration-300 transform ${
               isOpen ? 'rotate-3 scale-95' : 'hover:scale-105'
             }`}
           >

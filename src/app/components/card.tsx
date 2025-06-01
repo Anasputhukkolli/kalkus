@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Link from "next/link"; // at the top
 const CardSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
@@ -24,30 +24,24 @@ const CardSection = () => {
     // },
     {
       id: 1,
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop&auto=format",
+      image: "./images/img1.png",
+      link: "/production", // Add link to the first card
     },
     {
       id: 2,
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop&auto=format",
+      image: "./images/img2.png",
+      link: "/socials",
     },
     {
       id: 3,
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop&auto=format",
+      image: "./images/img3.png",
+      link: "/website",
     },
     {
       id: 4,
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop&auto=format",
+      image: "./images/img4.png",
+      link: "/branding",
     },
-    {
-      id: 5,
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop&auto=format",
-    },
-   
   ];
 
   // Get responsive slides per view
@@ -61,7 +55,7 @@ const CardSection = () => {
     return 1;
   };
 
-const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for server
+  const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for server
   const maxSlide = Math.max(0, cards.length - slidesPerView);
 
   useEffect(() => {
@@ -97,7 +91,7 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
     };
   }, [maxSlide, currentSlide]);
 
-  const goToSlide = (index:number) => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(Math.min(index, maxSlide));
   };
 
@@ -107,15 +101,10 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
         {/* Ultra Animated Section Header */}
         <div className="text-center mb-20 relative">
           {/* Mega Background Effects */}
-          
-
-        
 
           {/* Enhanced Subtitle */}
-          
 
           {/* Mega Floating Elements */}
-          
         </div>
 
         {/* Fixed Ultra Smooth Carousel */}
@@ -125,28 +114,31 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
             <div
               className="flex transition-transform duration-700 ease-in-out"
               style={{
-                transform: `translateX(-${currentSlide * (100 / slidesPerView)}%)`,
+                transform: `translateX(-${
+                  currentSlide * (100 / slidesPerView)
+                }%)`,
               }}
             >
               {cards.map((card, index) => (
                 <div
                   key={card.id}
                   className="flex-shrink-0 px-2 sm:px-4"
-                  style={{ 
-                    width: `${100 / slidesPerView}%`
+                  style={{
+                    width: `${100 / slidesPerView}%`,
                   }}
                 >
-                  <div
-                    className="group relative bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 transition-all duration-700 cursor-pointer transform-gpu h-80 sm:h-96"
-                    style={{
-                      transformStyle: "preserve-3d",
-                      transition:
-                        "transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                      perspective: "1000px",
-                    }}
-                    onMouseEnter={(e) => {
-                      if (window.innerWidth > 768) {
-                        e.currentTarget.style.transform = `
+                  <Link href={`${card.link}`} className="block">
+                    <div
+                      className="group relative bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 transition-all duration-700 cursor-pointer transform-gpu h-80 sm:h-96"
+                      style={{
+                        transformStyle: "preserve-3d",
+                        transition:
+                          "transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                        perspective: "1000px",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (window.innerWidth > 768) {
+                          e.currentTarget.style.transform = `
                           perspective(1000px) 
                           rotateX(-10deg) 
                           rotateY(5deg) 
@@ -154,19 +146,19 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
                           scale3d(1.05, 1.05, 1.05)
                           translateY(-10px)
                         `;
-                      }
-                    }}
-                    onMouseMove={(e) => {
-                      if (window.innerWidth > 768) {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        const centerX = rect.left + rect.width / 2;
-                        const centerY = rect.top + rect.height / 2;
-                        const mouseX = e.clientX - centerX;
-                        const mouseY = e.clientY - centerY;
-                        const rotateX = (mouseY / rect.height) * -20;
-                        const rotateY = (mouseX / rect.width) * 20;
+                        }
+                      }}
+                      onMouseMove={(e) => {
+                        if (window.innerWidth > 768) {
+                          const rect = e.currentTarget.getBoundingClientRect();
+                          const centerX = rect.left + rect.width / 2;
+                          const centerY = rect.top + rect.height / 2;
+                          const mouseX = e.clientX - centerX;
+                          const mouseY = e.clientY - centerY;
+                          const rotateX = (mouseY / rect.height) * -20;
+                          const rotateY = (mouseX / rect.width) * 20;
 
-                        e.currentTarget.style.transform = `
+                          e.currentTarget.style.transform = `
                           perspective(1000px) 
                           rotateX(${rotateX}deg) 
                           rotateY(${rotateY}deg) 
@@ -174,11 +166,11 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
                           scale3d(1.05, 1.05, 1.05)
                           translateY(-10px)
                         `;
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (window.innerWidth > 768) {
-                        e.currentTarget.style.transform = `
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (window.innerWidth > 768) {
+                          e.currentTarget.style.transform = `
                           perspective(1000px) 
                           rotateX(0deg) 
                           rotateY(0deg) 
@@ -186,46 +178,44 @@ const [slidesPerView, setSlidesPerView] = useState(3); // <- safe default for se
                           scale3d(1, 1, 1)
                           translateY(0px)
                         `;
-                      }
-                    }}
-                  >
-                    {/* Static Card Image */}
-                    <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                      <img
-                        src={card.image}
-                        className="w-full h-full object-cover"
-                        style={{
-                          filter: "brightness(0.8) contrast(1.1)",
-                        }}
-                      />
+                        }
+                      }}
+                    >
+                      {/* Static Card Image */}
+                      <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                        <img
+                          src={card.image}
+                          className="w-full h-full object-cover"
+                          style={{
+                            filter: "brightness(0.8) contrast(1.1)",
+                          }}
+                        />
 
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
 
-                      {/* Animated Glow Border */}
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/0 via-pink-500/0 to-cyan-500/0 group-hover:from-purple-500/30 group-hover:via-pink-500/30 group-hover:to-cyan-500/30 transition-all duration-700 blur-sm"></div>
+                        {/* Animated Glow Border */}
+                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/0 via-pink-500/0 to-cyan-500/0 group-hover:from-purple-500/30 group-hover:via-pink-500/30 group-hover:to-cyan-500/30 transition-all duration-700 blur-sm"></div>
+                      </div>
+
+                      {/* Enhanced Content */}
+
+                      {/* Hover Glow Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-pink-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-3xl -z-10 blur-xl transform translate-z-[-20px]" />
+
+                      {/* Animated Border */}
+                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-60 transition-opacity duration-700 -z-20 blur-sm transform translate-z-[-25px]" />
                     </div>
-
-                    {/* Enhanced Content */}
-                    
-
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-pink-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-3xl -z-10 blur-xl transform translate-z-[-20px]" />
-
-                    {/* Animated Border */}
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-60 transition-opacity duration-700 -z-20 blur-sm transform translate-z-[-25px]" />
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Dot Indicators */}
-         
         </div>
 
         {/* Enhanced Bottom CTA */}
-        
       </div>
 
       {/* Enhanced CSS Animations */}
